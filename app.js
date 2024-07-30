@@ -83,3 +83,14 @@ const checkWinner = () => {
 };
 newGameBtn.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
+
+for (var i = 0; i < 8; i++) {
+  boxes[i].addEventListener("click", function () {
+    audioPlay();
+  });
+}
+
+const audioPlay = () => {
+  let audio = new Audio("drop-of-water.mp3");
+  audio.play();
+};
