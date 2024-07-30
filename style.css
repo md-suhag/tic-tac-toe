@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.315), rgba(0, 0, 0, 0.493)),
+    url("images/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+}
+h1 {
+  font-family: "Russo One", sans-serif;
+  color: red;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  margin-top: 10px;
+  text-shadow: 3px 3px 0px rgb(0, 255, 64);
+}
+.container {
+  height: 70vh;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.game {
+  height: 60vmin;
+  width: 60vmin;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5vmin;
+}
+.box {
+  height: 18vmin;
+  width: 18vmin;
+  border: none;
+  border-radius: 1rem;
+
+  font-size: 8vmin;
+  color: green;
+  font-weight: 900;
+
+  background-image: linear-gradient(#ffffc7, transparent);
+  cursor: pointer;
+}
+#reset-btn {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+  background-color: #191913;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+}
+#new-btn {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.8rem;
+  background-color: #191913;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+#new-btn:hover {
+  transform: scale(1.4) rotate(360deg);
+}
+#msg {
+  color: #ffffc7;
+  text-shadow: 4px 4px 1px black;
+
+  font-size: 6vmin;
+  font-family: "Russo One", sans-serif;
+  letter-spacing: 2px;
+}
+
+.msg-container {
+  height: 30vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hide {
+  display: none;
+}
+@media screen and (max-width: 576px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
