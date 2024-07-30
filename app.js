@@ -20,6 +20,8 @@ const winPatterns = [
 
 const resetGame = () => {
   turnO = true;
+  winner = false;
+  count = 0;
   enableBoxes();
   msgContainer.classList.add("hide");
   resetBtn.classList.remove("hide");
@@ -41,7 +43,9 @@ boxes.forEach((box) => {
     count += 1;
     checkWinner();
     if (count === 9 && !winner) {
-      showWinner();
+      showWinner(null);
+    } else {
+      audioPlay();
     }
   });
 });
@@ -56,15 +60,15 @@ const enableBoxes = () => {
     box.innerText = "";
   }
 };
-const showWinner = (winner) => {
+const showWinner = (winnerText) => {
   msg.innerText =
     count === 9 && !winner
       ? "Alas! Game drawn"
-      : `Congratulations, Winner is ${winner}`;
+      : `Congratulations, Winner is ${winnerText}`;
   msgContainer.classList.remove("hide");
   resetBtn.classList.add("hide");
   disableBoxes();
-  count = 0;
+  audioPlay(winnerText);
 };
 
 const checkWinner = () => {
@@ -77,6 +81,7 @@ const checkWinner = () => {
       if (pos1Val === pos2Val && pos2Val === pos3Val) {
         winner = true;
         showWinner(pos1Val);
+        return;
       }
     }
   }
@@ -84,13 +89,14 @@ const checkWinner = () => {
 newGameBtn.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
 
-for (var i = 0; i < 8; i++) {
-  boxes[i].addEventListener("click", function () {
-    audioPlay();
-  });
-}
-
-const audioPlay = () => {
-  let audio = new Audio("drop-of-water.mp3");
+const audioPlay = (winnerText) => {
+  let audio;
+  if (winnerText) {
+    audio = new Audio("audio/success.wav");
+  } else if (count === 9 && !winner) {
+    audio = new Audio("audio/fail.wav");
+  } else {
+    audio = new Audio("audio/drop-of-water.mp3");
+  }
   audio.play();
 };
