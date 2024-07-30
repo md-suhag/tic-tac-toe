@@ -51,7 +51,7 @@ h1 {
 #reset-btn {
   padding: 0.5rem 0.8rem;
   font-size: 0.8rem;
-  background-color: #191913;
+  background-color: red;
   color: white;
   border-radius: 0.5rem;
   border: none;
@@ -61,7 +61,8 @@ h1 {
 #new-btn {
   padding: 0.5rem 0.8rem;
   font-size: 0.8rem;
-  background-color: #191913;
+
+  background-color: red;
   color: white;
   border-radius: 0.5rem;
   border: none;
@@ -69,7 +70,7 @@ h1 {
   transition: 0.5s;
 }
 #new-btn:hover {
-  transform: scale(1.4) rotate(360deg);
+  transform: scale(1.2) rotate(360deg);
 }
 #msg {
   color: #ffffc7;
