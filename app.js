@@ -25,6 +25,7 @@ const resetGame = () => {
   enableBoxes();
   msgContainer.classList.add("hide");
   resetBtn.classList.remove("hide");
+  boxes.forEach((box) => (box.style.backgroundColor = ""));
 };
 
 boxes.forEach((box) => {
@@ -61,6 +62,7 @@ const enableBoxes = () => {
   }
 };
 const showWinner = (winnerText) => {
+  audioPlay(winnerText);
   msg.innerText =
     count === 9 && !winner
       ? "Alas! Game drawn"
@@ -68,7 +70,12 @@ const showWinner = (winnerText) => {
   msgContainer.classList.remove("hide");
   resetBtn.classList.add("hide");
   disableBoxes();
-  audioPlay(winnerText);
+  count === 9 && !winner
+    ? (msgContainer.style.backgroundColor = "red")
+    : (msgContainer.style.backgroundColor = "green");
+  setTimeout(() => {
+    msgContainer.style.backgroundColor = "";
+  }, 500);
 };
 
 const checkWinner = () => {
@@ -81,6 +88,12 @@ const checkWinner = () => {
       if (pos1Val === pos2Val && pos2Val === pos3Val) {
         winner = true;
         showWinner(pos1Val);
+        let winboxes = [
+          boxes[pattern[0]],
+          boxes[pattern[1]],
+          boxes[pattern[2]],
+        ];
+        winboxes.forEach((box) => (box.style.backgroundColor = "yellow"));
         return;
       }
     }

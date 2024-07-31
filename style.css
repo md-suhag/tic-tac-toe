@@ -16,7 +16,7 @@ h1 {
   color: red;
   font-size: 3rem;
   letter-spacing: 5px;
-  margin-top: 10px;
+
   text-shadow: 3px 3px 0px rgb(0, 255, 64);
 }
 .container {
@@ -57,20 +57,36 @@ h1 {
   border: none;
   margin: 10px;
   cursor: pointer;
+  transition: 0.4s;
+}
+#reset-btn:hover {
+  box-shadow: 0px 0px 10px yellow;
+  transform: scale(1.2);
 }
 #new-btn {
   padding: 0.5rem 0.8rem;
   font-size: 0.8rem;
-
   background-color: red;
   color: white;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.4s;
+  animation: inc-dec infinite 1s;
+}
+@keyframes inc-dec {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 #new-btn:hover {
-  transform: scale(1.2) rotate(360deg);
+  box-shadow: 0px 0px 10px yellow;
 }
 #msg {
   color: #ffffc7;
@@ -82,12 +98,12 @@ h1 {
 }
 
 .msg-container {
-  height: 30vmin;
+  height: 25vmin;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
 .hide {
